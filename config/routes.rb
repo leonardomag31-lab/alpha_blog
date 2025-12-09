@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.htm
   root 'pages#home'
   get 'about', to: 'pages#about'
-  resources :articles, only: [:show, :index]
+  resources :articles, only: [:show, :index, :new, :create]
   end
+
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
 
