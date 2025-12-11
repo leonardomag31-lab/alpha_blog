@@ -6,5 +6,7 @@
  * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
  * depending on specificity.
  *
+ *= require bootstrap
+ *= require_self
  * Consider organizing styles into separate files for maintainability.
  */
