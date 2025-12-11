@@ -9,6 +9,7 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.20",
     "bootstrap": "4.4.1",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1"
