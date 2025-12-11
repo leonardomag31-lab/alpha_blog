@@ -14,5 +14,11 @@
     "bootstrap": "4.4.1",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1"
+    
   }
+  "engines": {
+    "node": "18.x",
+    "yarn": "1.x"
+  }
+
 }
