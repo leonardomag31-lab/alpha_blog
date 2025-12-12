@@ -1,6 +1,6 @@
-const path = require("path")
-const webpack = require("webpack")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require("path");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
@@ -12,22 +12,16 @@ module.exports = {
     filename: "[name].js",
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "app/assets/builds"),
+    publicPath: "/assets/builds/"
   },
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(scss|sass|css)$/i,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader"
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader"
         ]
       }
     ]
@@ -40,4 +34,4 @@ module.exports = {
       maxChunks: 1
     })
   ]
-}
+};
