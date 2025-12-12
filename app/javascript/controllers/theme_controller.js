@@ -29,10 +29,10 @@ export default class extends Controller {
     const icon = document.getElementById("theme-icon")
     if (!icon) return
 
-    // Use emojis para cada tema
+    // Ícones de Sol/Lua/Auto
     icon.textContent = theme === "light" ? "☀️"
                      : theme === "dark"  ? "🌑"
-                     : "⚪"  // Auto
+                     : "⚪"
   }
 
   getCurrentTheme() {

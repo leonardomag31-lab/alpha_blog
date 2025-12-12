@@ -1,23 +1,26 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
   <div class="container-fluid">
 
+    <!-- Logo / Brand -->
     <%= link_to "AlphaBlog", root_path, class: "navbar-brand" %>
 
+    <!-- Hamburger para mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
 
-        <!-- Link Home -->
+        <!-- Home -->
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
 
-        <!-- Link Articles -->
+        <!-- Articles -->
         <li class="nav-item">
           <%= link_to "Articles", articles_path, class: "nav-link" %>
         </li>
@@ -29,23 +32,23 @@
             id="themeMenuButton"
             data-bs-toggle="dropdown"
             aria-expanded="false">
-            <i id="theme-icon" class="bi bi-circle-half"></i>
+            <span id="theme-icon">⚪</span>
           </button>
 
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeMenuButton" data-controller="theme">
             <li>
               <button class="dropdown-item theme-option" data-theme="light">
-                <i class="bi bi-sun"></i> Light
+                ☀️ Light
               </button>
             </li>
             <li>
               <button class="dropdown-item theme-option" data-theme="dark">
-                <i class="bi bi-moon-stars"></i> Dark
+                🌑 Dark
               </button>
             </li>
             <li>
               <button class="dropdown-item theme-option" data-theme="auto">
-                <i class="bi bi-circle-half"></i> Auto
+                ⚪ Auto
               </button>
             </li>
           </ul>
