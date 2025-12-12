@@ -4,8 +4,11 @@ export default class extends Controller {
   connect() {
     this.options = this.element.querySelectorAll(".theme-option")
     this.options.forEach(button => {
-      button.addEventListener("click", this.setTheme)
+      button.addEventListener("click", this.setTheme.bind(this))
     })
+
+    // Inicializa o ícone de acordo com o tema atual
+    this.updateIcon(this.getCurrentTheme())
   }
 
   setTheme(event) {
@@ -19,12 +22,22 @@ export default class extends Controller {
       document.documentElement.removeAttribute("data-bs-theme")
     }
 
-    // Atualiza o ícone do botão
+    this.updateIcon(theme)
+  }
+
+  updateIcon(theme) {
     const icon = document.getElementById("theme-icon")
-    if (icon) {
-      icon.className = theme === "light" ? "bi bi-sun"
-                   : theme === "dark" ? "bi bi-moon-stars"
-                   : "bi bi-circle-half"
-    }
+    if (!icon) return
+
+    // Use emojis para cada tema
+    icon.textContent = theme === "light" ? "☀️"
+                     : theme === "dark"  ? "🌑"
+                     : "⚪"  // Auto
+  }
+
+  getCurrentTheme() {
+    if (document.documentElement.getAttribute("data-bs-theme") === "light") return "light"
+    if (document.documentElement.getAttribute("data-bs-theme") === "dark") return "dark"
+    return "auto"
   }
 }
