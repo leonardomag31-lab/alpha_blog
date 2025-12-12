@@ -16,8 +16,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
- 
-gem "importmap-rails"
+
+gem "jsbundling-rails", "~> 1.3"
+gem "sass-rails", "~> 6.0"
+
+# gem "importmap-rails"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 # gem "webpacker", "~> 5.0"
@@ -56,6 +59,7 @@ group :development, :test do
 
   gem "byebug"
 
+ 
 end
 
 group :development do
@@ -72,4 +76,5 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "jsbundling-rails", "~> 1.3"
+
+
