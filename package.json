@@ -1,16 +1,13 @@
 {
   "name": "app",
   "private": true,
-
   "engines": {
     "node": "20.x",
     "yarn": "1.x"
   },
-
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
-
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.20",
@@ -18,8 +15,11 @@
     "bootstrap": "^5.3.8",
     "jquery": "^3.7.1"
   },
-
   "devDependencies": {
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.4",
+    "sass": "^1.96.0",
+    "sass-loader": "^16.0.6",
     "webpack": "^5.103.0",
     "webpack-cli": "^6.0.1"
   }
