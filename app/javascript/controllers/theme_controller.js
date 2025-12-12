@@ -26,14 +26,22 @@ export default class extends Controller {
   }
 
   updateIcon(theme) {
-    const icon = document.getElementById("theme-icon")
-    if (!icon) return
+  const button = document.getElementById("themeMenuButton")
+  if (!button) return
 
-    // Ícones de Sol/Lua/Auto
-    icon.textContent = theme === "light" ? "☀️"
-                     : theme === "dark"  ? "🌑"
-                     : "⚪"
-  }
+  button.textContent = theme === "light" ? "☀️"
+                    : theme === "dark"  ? "🌑"
+                    : "⚪"
+}
+// updateIcon(theme) {
+//     const icon = document.getElementById("theme-icon")
+//     if (!icon) return
+
+//     // Ícones de Sol/Lua/Auto
+//     icon.textContent = theme === "light" ? "☀️"
+//                      : theme === "dark"  ? "🌑"
+//                      : "⚪"
+//   }
 
   getCurrentTheme() {
     if (document.documentElement.getAttribute("data-bs-theme") === "light") return "light"
