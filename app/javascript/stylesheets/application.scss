@@ -1,14 +1,13 @@
-/* Importe o Bootstrap no topo */
-@import "bootstrap/scss/bootstrap";
-@import "bootstrap-icons/font/bootstrap-icons";
+/* Importe o Bootstrap primeiro */
+@import "~bootstrap/scss/bootstrap";
 
-/* Garante que outros arquivos .scss e .css no diretório sejam carregados */
+/* Importe Bootstrap Icons */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* Variáveis e estilos base do seu projeto */
 @import "base/variaveis";
-/* ou use a convenção antiga (se necessário):
- *= require_tree .
- *= require_self
-*/
 
+/* Estilos específicos */
 .card {
   border-radius: 0.75rem;
 }
