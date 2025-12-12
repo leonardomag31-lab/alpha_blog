@@ -1,5 +1,6 @@
 /* Importe o Bootstrap no topo */
 @import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 /* Garante que outros arquivos .scss e .css no diretório sejam carregados */
 @import "base/variaveis";
