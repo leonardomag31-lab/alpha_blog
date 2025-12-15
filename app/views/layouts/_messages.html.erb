@@ -1,3 +1,11 @@
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
+<% flash.each do |key, message| %>
+  <% bootstrap_class = case key.to_sym
+      when :notice then "alert alert-success"
+      when :alert  then "alert alert-danger"
+      else "alert alert-info"
+    end %>
+
+  <div class="<%= bootstrap_class %> mt-2">
+    <%= message %>
+  </div>
+<% end %>
