@@ -4,8 +4,9 @@
       <% articles.each do |article| %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= link_to article.title,
-                      article_path(article),
-                      class: "fw-bold text-decoration-none" %>
+            article_path(article),
+            data: { turbo_frame: "_top" },
+            class: "fw-bold text-decoration-none" %>
 
           <small class="text-muted">
             <%= article.created_at.strftime("%d/%m/%Y") %>
