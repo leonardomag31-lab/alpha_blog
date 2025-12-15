@@ -1,29 +1,20 @@
-<div class="p-5 mb-4 bg-body-secondary rounded-3 shadow-sm">
-  <div class="container-fluid py-5">
+<div class="d-flex gap-2">
+  <%= form_with url: articles_path,
+                method: :get,
+                data: { turbo_frame: "articles_list" },
+                class: "d-flex" do |f| %>
 
-    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-      <div>
-        <h1 class="display-5 fw-bold mb-2">Articles</h1>
-        <p class="text-muted mb-0">
-          Search and manage your articles
-        </p>
-      </div>
+    <%= f.search_field :q,
+          value: params[:q],
+          placeholder: "Search articles...",
+          class: "form-control",
+          autofocus: true %>
 
-      <%= form_with url: articles_path,
-                    method: :get,
-                    local: true,
-                    class: "d-flex" do |f| %>
+  <% end %>
 
-        <%= f.search_field :q,
-              value: params[:q],
-              placeholder: "Search articles...",
-              class: "form-control me-2",
-              style: "min-width: 220px;" %>
-
-        <%= f.submit "Search", class: "btn btn-outline-secondary" %>
-      <% end %>
-
-    </div>
-
-  </div>
+  <%= link_to "New Article",
+        new_article_path,
+        class: "btn btn-success" %>
 </div>
+
+<%= render "articles/list", articles: articles %>

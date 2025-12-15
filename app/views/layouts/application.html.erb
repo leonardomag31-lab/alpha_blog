@@ -7,10 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!-- CSS compilado pelo Webpack -->
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-
-    <!-- JS compilado pelo Webpack -->
     <%= javascript_include_tag "application", defer: true %>
   </head>
 
@@ -19,20 +16,19 @@
 
     <div class="container mt-4">
 
-      <!-- Flash messages -->
       <%= render "layouts/messages" %>
 
-     <!-- Jumbotrons contextuais -->
+      <!-- Jumbotrons contextuais -->
       <% if controller_name == "pages" && action_name == "home" %>
         <%= render "layouts/jumbotron_home" %>
 
       <% elsif controller_name == "articles" && action_name == "index" %>
-        <%= render "layouts/jumbotron_articles" %>
+        <%= render "layouts/jumbotron_articles", articles: @articles %>
+
+      <% else %>
+        <%= yield %>
       <% end %>
 
-      <%= yield %>
     </div>
-
-    <%#= render "layouts/footer" %>
   </body>
 </html>
