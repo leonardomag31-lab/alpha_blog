@@ -1,61 +1,35 @@
-<nav class="navbar navbar-expand-lg mb-4" style="background-color: #2e2e2e;">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>">AlphaBlog</a>
 
-    <!-- Logo / Brand -->
-    <%= link_to "AlphaBlog", root_path, class: "navbar-brand text-white" %>
-
-    <!-- Hamburger para mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Links principais -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <!-- Home -->
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link text-white" %>
+          <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-
-        <!-- Articles -->
         <li class="nav-item">
-          <%= link_to "Articles", articles_path, class: "nav-link text-white" %>
+          <%= link_to "Artigos", articles_path, class: "nav-link" %>
         </li>
-
       </ul>
 
-      <!-- Barra de pesquisa -->
-      <form class="d-flex me-3" action="<%= articles_path %>" method="get">
-        <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Buscar..." aria-label="Search">
-        <button class="btn btn-outline-light btn-sm" type="submit">Buscar</button>
-      </form>
-
-      <!-- Theme Switcher -->
-      <li class="nav-item dropdown list-unstyled">
-        <button
-          class="btn btn-outline-light btn-sm dropdown-toggle"
-          id="themeMenuButton"
-          data-bs-toggle="dropdown"
-          aria-expanded="false">
-          ⚪
+      <!-- Botão de troca de tema -->
+      <div class="dropdown ms-auto">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button"
+                id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i id="theme-icon" class="bi bi-circle-half"></i>
         </button>
-
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeMenuButton" data-controller="theme">
-          <li>
-            <button class="dropdown-item theme-option" data-theme="light">☀️ Light</button>
-          </li>
-          <li>
-            <button class="dropdown-item theme-option" data-theme="dark">🌑 Dark</button>
-          </li>
-          <li>
-            <button class="dropdown-item theme-option" data-theme="auto">⚪ Auto</button>
-          </li>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeDropdown">
+          <li><button class="dropdown-item theme-option" data-theme="light">☀️ Light</button></li>
+          <li><button class="dropdown-item theme-option" data-theme="dark">🌑 Dark</button></li>
+          <li><button class="dropdown-item theme-option" data-theme="auto">⚪ Auto</button></li>
         </ul>
-      </li>
-
+      </div>
     </div>
   </div>
 </nav>

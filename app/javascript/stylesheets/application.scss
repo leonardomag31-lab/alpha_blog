@@ -1,13 +1,81 @@
-/* Importe o Bootstrap primeiro */
-@import "~bootstrap/scss/bootstrap";
+// app/javascript/stylesheets/application.scss
 
-/* Importe Bootstrap Icons */
-@import "~bootstrap-icons/font/bootstrap-icons.css";
+// Bootstrap 5
+@use "bootstrap" as *;
 
-/* Variáveis e estilos base do seu projeto */
-@import "base/variaveis";
+// Bootstrap Icons
+@use "bootstrap-icons/font/bootstrap-icons" as *;
+
+// Variáveis globais do projeto
+@use "base/variaveis" as *;
+
+// Componentes customizados
+@use "components/jumbotron" as *;
+@use "components/jumbotron_articles" as *;
+@use "components/article_show" as *;
 
 /* Estilos específicos */
 .card {
   border-radius: 0.75rem;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // garante que o footer fique no final
+}
+
+.container.mt-4 {
+  flex: 1 0 auto; // faz o conteúdo principal crescer
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: #212529; // mesma cor do bg-dark do Bootstrap
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* Jumbotron Home */
+.jumbotron-home {
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+
+  .jumbotron-home-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .jumbotron-home-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; // texto sobre a imagem
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1.display-4 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p.lead {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+  }
 }

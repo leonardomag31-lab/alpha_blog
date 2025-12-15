@@ -1,19 +1,30 @@
 <div class="row justify-content-center">
   <div class="col-md-8">
-  
-    <h1 class="mb-3"><%= @article.title %></h1>
+    <div class="article-show p-4" style="background-color: #fff8f0; color: #212529; border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <h1 class="text-center mb-3"><%= @article.title %></h1>
 
-    <p class="lead"><%= @article.description %></p>
+      <div class="article-meta text-center mb-4 text-muted">
+        Publicado em <%= @article.created_at.strftime("%d/%m/%Y") %>
+      </div>
 
-    <div class="mt-4">
-      <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary me-2" %>
+      <!-- Imagem do artigo -->
+      <div class="article-image text-center mb-4">
+        <%= image_tag "placeholder.png", class: "img-fluid rounded shadow-sm", alt: "Imagem do artigo" %>
+      </div>
 
-      <%= link_to "Delete", @article,
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-          class: "btn btn-danger me-2" %>
+      <!-- Conteúdo -->
+      <div class="article-content mb-4">
+        <p><%= simple_format(@article.description) %></p>
+      </div>
 
-      <%= link_to "Back to Articles", articles_path, class: "btn btn-secondary" %>
+      <!-- Botões de ação -->
+      <div class="article-actions text-center">
+        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary me-2" %>
+        <%= link_to "Delete", @article,
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "btn btn-danger me-2" %>
+        <%= link_to "Back to Articles", articles_path, class: "btn btn-secondary" %>
+      </div>
     </div>
-
   </div>
 </div>

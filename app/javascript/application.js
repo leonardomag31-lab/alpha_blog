@@ -1,8 +1,9 @@
-import "bootstrap"
-import "@hotwired/turbo-rails"
-import "./controllers"
-import "./stylesheets/application.scss"
-
+// Importações principais
+import "bootstrap";
+import "@hotwired/turbo-rails";
+import "./controllers";
+import "./stylesheets/application.scss";
+import "./theme_toggle"
 // ============================
 // Theme Switcher (Light/Dark/Auto)
 // ============================
@@ -31,14 +32,13 @@ function setTheme(theme) {
   applyTheme(theme);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const savedTheme = localStorage.getItem("theme") || "auto";
   applyTheme(savedTheme);
 
   document.querySelectorAll(".theme-option").forEach(btn => {
     btn.addEventListener("click", () => {
-      const theme = btn.dataset.theme;
-      setTheme(theme);
+      setTheme(btn.dataset.theme);
     });
   });
 
@@ -48,3 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+import * as bootstrap from "bootstrap"

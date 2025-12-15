@@ -1,37 +1,39 @@
 const path = require("path");
-const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "production",
-  devtool: "source-map",
-  entry: {
-    application: "./app/javascript/application.js"
-  },
+  mode: process.env.NODE_ENV || "development",
+  entry: "./app/javascript/application.js",
   output: {
-    filename: "[name].js",
-    sourceMapFilename: "[file].map",
+    filename: "application.js",
     path: path.resolve(__dirname, "app/assets/builds"),
-    publicPath: "/assets/builds/"
+    clean: true
   },
   module: {
     rules: [
       {
-        test: /\.(scss|sass|css)$/i,
+        test: /\.scss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader"
+        ]
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
         ]
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css"
-    }),
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
+      filename: "application.css"
     })
-  ]
+  ],
+  resolve: {
+    extensions: [".js", ".scss", ".css"]
+  }
 };

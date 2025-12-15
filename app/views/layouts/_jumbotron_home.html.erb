@@ -1,14 +1,23 @@
-<div class="p-5 mb-4 bg-body-secondary rounded-3 shadow-sm">
-  <div class="container-fluid py-5 text-center">
-    <h1 class="display-4 fw-bold">Welcome to AlphaBlog</h1>
+<!-- app/views/layouts/_jumbotron_home.html.erb -->
 
-    <p class="col-md-8 mx-auto fs-5 mt-3">
-      A simple blog platform built with Ruby on Rails 8, Turbo, Bootstrap e
-      suporte a tema Light / Dark / Auto.
-    </p>
+<div class="jumbotron jumbotron-home position-relative">
+  <!-- Banner da Home -->
+  <%= image_tag "home_banner.jpg", class: "img-fluid jumbotron-home-banner", alt: "Banner da Home" %>
 
-    <%= link_to "View Articles",
-                articles_path,
-                class: "btn btn-primary btn-lg mt-3" %>
+  <!-- Overlay centralizado -->
+  <div class="jumbotron-home-overlay">
+    <!-- Título e descrição -->
+    <h1 class="display-4">Bem-vindo ao AlphaBlog!</h1>
+    <p class="lead">Seu blog moderno em Rails 8 com Bootstrap 5, Sass e ícones.</p>
+
+    <!-- Ícones decorativos -->
+    <div class="mt-3">
+      <i class="bi bi-star-fill me-2"></i>
+      <i class="bi bi-heart-fill me-2"></i>
+      <i class="bi bi-lightning-fill"></i>
+    </div>
+
+    <!-- Botão de ação -->
+    <%= link_to "Explorar Artigos", articles_path, class: "btn btn-primary btn-lg mt-3" %>
   </div>
 </div>

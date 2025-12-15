@@ -1,20 +1,21 @@
-<div class="d-flex gap-2">
-  <%= form_with url: articles_path,
-                method: :get,
-                data: { turbo_frame: "articles_list" },
-                class: "d-flex" do |f| %>
+<div class="jumbotron py-5 mb-4" style="background-color: #fdf6e3; color: #212529; border-radius: 0.5rem;">
+  <h1 class="display-5 text-center mb-3">Lista de Artigos</h1>
+  <p class="lead text-center mb-4">Confira os artigos mais recentes publicados no AlphaBlog.</p>
 
-    <%= f.search_field :q,
-          value: params[:q],
-          placeholder: "Search articles...",
-          class: "form-control",
-          autofocus: true %>
+  <div class="row">
+    <% articles.each do |article| %>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100" style="background-color: #fff8f0; border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <!-- Imagem do artigo -->
+          <%= image_tag "article.jpg", class: "card-img-top", alt: "Imagem do artigo" %>
 
-  <% end %>
-
-  <%= link_to "New Article",
-        new_article_path,
-        class: "btn btn-success" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= article.title %></h5>
+            <p class="card-text"><%= truncate(article.description || "", length: 100) %></p>
+            <%= link_to "Ler Mais", article_path(article), class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= render "articles/list", articles: articles %>

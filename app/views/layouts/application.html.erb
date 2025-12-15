@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html data-bs-theme="auto">
+<html id="html-root" data-bs-theme="auto">
   <head>
     <title>AlphaBlog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- CSS -->
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", defer: true %>
+
+    <!-- JS -->
+    <%= javascript_include_tag "application", type: "module", defer: true, "data-turbo-track": "reload" %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
     <%= render "layouts/navbar" %>
 
-    <div class="container mt-4">
-
+    <!-- Conteúdo principal -->
+    <div class="container mt-4 flex-grow-1">
       <%= render "layouts/messages" %>
 
-      <!-- Jumbotrons contextuais -->
       <% if controller_name == "pages" && action_name == "home" %>
-        <%= render "layouts/jumbotron_home" %>
-
+        <%= render "layouts/jumbotron_home" rescue yield %>
       <% elsif controller_name == "articles" && action_name == "index" %>
-        <%= render "layouts/jumbotron_articles", articles: @articles %>
-
+        <%= render "layouts/jumbotron_articles", articles: @articles rescue yield %>
       <% else %>
         <%= yield %>
       <% end %>
-
     </div>
+
+    <!-- Sticky Footer -->
+    <footer class="bg-dark text-light py-3 mt-auto">
+      <div class="container text-center">
+        &copy; <%= Time.now.year %> AlphaBlog. Todos os direitos reservados.
+      </div>
+    </footer>
   </body>
 </html>

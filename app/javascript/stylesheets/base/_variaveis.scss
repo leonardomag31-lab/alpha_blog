@@ -1,1 +1,11 @@
-$minha-cor: #ef1414;
+// app/javascript/stylesheets/base/_variaveis.scss
+
+$primary-color: #0d6efd;
+$secondary-color: #6c757d;
+$success-color: #198754;
+
+$theme-colors: (
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "success": $success-color
+);
