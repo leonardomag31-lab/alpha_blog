@@ -22,9 +22,12 @@
       <!-- Flash messages -->
       <%= render "layouts/messages" %>
 
-      <!-- Jumbotron apenas na home -->
+     <!-- Jumbotrons contextuais -->
       <% if controller_name == "pages" && action_name == "home" %>
-        <%= render "layouts/jumbotron" %>
+        <%= render "layouts/jumbotron_home" %>
+
+      <% elsif controller_name == "articles" && action_name == "index" %>
+        <%= render "layouts/jumbotron_articles" %>
       <% end %>
 
       <%= yield %>
